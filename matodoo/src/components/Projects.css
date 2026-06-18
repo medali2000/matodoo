@@ -1,0 +1,8 @@
+.projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.project-icon { font-size: 36px; margin-bottom: 1.1rem; display: block; transition: transform .3s; }
+.card-base:hover .project-icon { transform: scale(1.2) rotate(-5deg); }
+.project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+
+@media (max-width: 680px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}

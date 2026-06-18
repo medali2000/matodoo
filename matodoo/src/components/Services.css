@@ -1,0 +1,15 @@
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+.service-icon {
+  width: 48px; height: 48px; background: var(--brand-light);
+  border-radius: var(--r-md); display: flex; align-items: center;
+  justify-content: center; margin-bottom: 1.25rem; font-size: 24px;
+  transition: transform .3s, background .3s;
+}
+.card-base:hover .service-icon {
+  transform: scale(1.15) rotate(-6deg); background: var(--brand); filter: saturate(0) brightness(10);
+}
+
+@media (max-width: 680px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
