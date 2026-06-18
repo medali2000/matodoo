@@ -2,7 +2,9 @@ import './Contact.css';
 import { useRef, useState } from 'react';
 import { useReveal } from '../hooks/useReveal';
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqebrvd';
+// Calls our own Netlify Function, which holds the Odoo credentials server-side
+// and creates a crm.lead record. No secrets are ever exposed to the browser.
+const LEAD_ENDPOINT = '/.netlify/functions/create-lead';
 
 const SERVICE_OPTIONS = [
   'Implémentation ERP',
@@ -25,11 +27,21 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
+
+    const formData = new FormData(formElRef.current);
+    const payload = {
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      email: formData.get('email'),
+      service: formData.get('service'),
+      message: formData.get('message'),
+    };
+
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(LEAD_ENDPOINT, {
         method: 'POST',
-        body: new FormData(formElRef.current),
-        headers: { Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
       setStatus(res.ok ? 'success' : 'error');
     } catch {
@@ -81,8 +93,6 @@ export default function Contact() {
                   />
                 </div>
               </div>
-              <input type="hidden" name="source" value="matodoo Landing Page (React)" />
-              <input type="hidden" name="_subject" value="Nouveau lead — matodoo" />
               <button type="submit" className="form-submit" disabled={status === 'sending'}>
                 <span>
                   {status === 'sending' ? 'Envoi en cours...' : status === 'error' ? 'Erreur — réessayez' : 'Envoyer ma demande'}
