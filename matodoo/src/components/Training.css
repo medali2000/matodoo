@@ -1,0 +1,15 @@
+.bootcamp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.bootcamp-card.card-base::before { background: var(--purple); }
+.bootcamp-icon {
+  width: 48px; height: 48px; background: var(--purple-light);
+  border-radius: var(--r-md); display: flex; align-items: center;
+  justify-content: center; margin-bottom: 1.25rem; font-size: 24px;
+  transition: transform .3s, background .3s;
+}
+.bootcamp-card:hover .bootcamp-icon {
+  transform: scale(1.15) rotate(-6deg); background: var(--purple); filter: saturate(0) brightness(10);
+}
+
+@media (max-width: 680px) {
+  .bootcamp-grid { grid-template-columns: 1fr; }
+}

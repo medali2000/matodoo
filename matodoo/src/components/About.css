@@ -1,0 +1,40 @@
+.about-grid { display: grid; grid-template-columns: 240px 1fr; gap: 3.5rem; align-items: center; }
+
+.photo-wrap { position: relative; width: 200px; }
+.photo-circle {
+  width: 200px; height: 200px; border-radius: 50%;
+  border: 3px solid var(--brand-border); overflow: hidden;
+  background: var(--bg2); display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.photo-ring {
+  position: absolute; inset: -8px; border-radius: 50%;
+  border: 2px dashed var(--brand-border);
+  animation: spin-slow 20s linear infinite; pointer-events: none;
+}
+.photo-circle img { width: 100%; height: 100%; object-fit: cover; }
+.photo-initials {
+  font-family: 'Space Mono', monospace; font-size: 38px;
+  font-weight: 700; color: var(--brand); letter-spacing: -1px;
+}
+
+.about-name { font-size: 28px; font-weight: 700; color: var(--fg); margin-bottom: 4px; }
+.about-title {
+  font-size: 14px; color: var(--brand); font-weight: 500;
+  margin-bottom: 1.5rem; font-family: 'Space Mono', monospace;
+}
+.about-bio { font-size: 15px; color: var(--fg2); line-height: 1.85; margin-bottom: 1.5rem; }
+.about-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.about-chip {
+  font-size: 12px; padding: 5px 13px; border-radius: 20px;
+  border: 0.5px solid var(--brand-border); color: var(--brand);
+  background: var(--brand-light); font-family: 'Space Mono', monospace;
+  transition: all .2s;
+}
+.about-chip:hover { background: var(--brand); color: #fff; transform: translateY(-2px); }
+
+@media (max-width: 680px) {
+  .about-grid { grid-template-columns: 1fr; text-align: center; }
+  .photo-wrap { margin: 0 auto; }
+  .about-chips { justify-content: center; }
+}
