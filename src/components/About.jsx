@@ -28,9 +28,9 @@ export default function About() {
             <div className="about-name">Mohamed Ali Trabelsi</div>
             <div className="about-title">ERP Consultant & Full Stack Developer</div>
             <p className="about-bio">
-              Ingénieur en informatique diplômé d'ESPRIT, je mets mon expertise au service des
+              Ingénieur en informatique, je mets mon expertise au service des
               entreprises pour digitaliser et automatiser leurs opérations. Spécialisé dans
-              l'implémentation ERP on-premise, je traduis les besoins métier complexes en solutions
+              l'implémentation ERP Odoo, je traduis les besoins métier complexes en solutions
               techniques concrètes — et je transmets ce savoir à travers des formations et bootcamps
               dédiés.
             </p>
