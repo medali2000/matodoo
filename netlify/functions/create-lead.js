@@ -5,10 +5,10 @@
 // using credentials stored in Netlify environment variables (never exposed to the client).
 //
 // Required environment variables (set in Netlify dashboard, NOT in code):
-//   ODOO_URL       e.g. "https://yourcompany.odoo.com"
-//   ODOO_DB        e.g. "yourcompany" (the database name, usually same as subdomain)
-//   ODOO_LOGIN     the Odoo user's login (usually an email)
-//   ODOO_API_KEY   the API key generated from Odoo (Settings > Users > API Keys)
+//   ODOO_URL        e.g. "https://yourcompany.odoo.com"  (no trailing slash)
+//   ODOO_DB         e.g. "yourcompany" (the database name, usually same as subdomain)
+//   ODOO_LOGIN      the Odoo user's login email
+//   ODOO_PASSWORD   the Odoo user's password (NOT an API key — JSON-RPC login requires the real password)
 
 exports.handler = async (event) => {
   // Only allow POST
@@ -42,9 +42,9 @@ exports.handler = async (event) => {
   const ODOO_URL = process.env.ODOO_URL;
   const ODOO_DB = process.env.ODOO_DB;
   const ODOO_LOGIN = process.env.ODOO_LOGIN;
-  const ODOO_API_KEY = process.env.ODOO_API_KEY;
+  const ODOO_PASSWORD = process.env.ODOO_PASSWORD;
 
-  if (!ODOO_URL || !ODOO_DB || !ODOO_LOGIN || !ODOO_API_KEY) {
+  if (!ODOO_URL || !ODOO_DB || !ODOO_LOGIN || !ODOO_PASSWORD) {
     console.error('Missing Odoo environment variables');
     return {
       statusCode: 500,
@@ -63,7 +63,7 @@ exports.handler = async (event) => {
         params: {
           service: 'common',
           method: 'login',
-          args: [ODOO_DB, ODOO_LOGIN, ODOO_API_KEY],
+          args: [ODOO_DB, ODOO_LOGIN, ODOO_PASSWORD],
         },
         id: 1,
       }),
@@ -102,7 +102,7 @@ exports.handler = async (event) => {
           args: [
             ODOO_DB,
             uid,
-            ODOO_API_KEY,
+            ODOO_PASSWORD,
             'crm.lead',
             'create',
             [
