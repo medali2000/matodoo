@@ -44,7 +44,7 @@ export default function Hero() {
           </a>
         </div>
         <div className="hero-stats">
-          <StatCard target={5} suffix="+" label="ans d'expérience ERP" />
+          <StatCard target={2} suffix="+" label="ans d'expérience ERP" />
           <StatCard target={10} suffix="+" label="projets livrés" />
           <StatCard target={100} suffix="%" label="déploiements on-premise" />
         </div>
