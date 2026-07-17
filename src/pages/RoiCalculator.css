@@ -1,0 +1,131 @@
+/* src/pages/RoiCalculator.css — réutilise les variables globales de index.css */
+
+.roi-page { min-height: 100vh; background: var(--bg2); padding-bottom: 4rem; }
+
+/* ── Header minimal ── */
+.roi-top {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 2.5rem 1rem 0;
+}
+.roi-logo { font-size: 26px; font-weight: 700; color: var(--fg); letter-spacing: -0.5px; }
+.roi-logo b, .roi-logo i { color: var(--brand); font-style: normal; }
+.roi-eyebrow {
+  font-family: 'Space Mono', monospace; font-size: 11px; color: var(--brand);
+  letter-spacing: 2.5px; text-transform: uppercase;
+}
+
+.roi-h1 {
+  font-size: 42px; font-weight: 700; line-height: 1.15; text-align: center;
+  margin: 2.5rem 0 1rem; color: var(--fg);
+}
+.roi-h1 span { color: var(--brand); }
+.roi-sub { text-align: center; color: var(--fg2); font-size: 15px; max-width: 560px; margin: 0 auto 3.5rem; }
+
+/* ── Blocs / étapes ── */
+.roi-block { margin-bottom: 3.5rem; background: transparent; border: none; padding: 0; }
+
+.roi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem 2.2rem; }
+
+.roi-field { display: flex; flex-direction: column; gap: 8px; }
+.roi-field-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 13.5px; color: var(--fg); font-weight: 500;
+}
+.roi-field-head strong { font-family: 'Space Mono', monospace; color: var(--brand); font-size: 14px; }
+.roi-field small { color: var(--fg3); font-size: 11.5px; line-height: 1.5; }
+
+.roi-field input[type='range'] {
+  width: 100%; accent-color: var(--brand); cursor: pointer; height: 4px;
+}
+.roi-field select {
+  background: var(--card-bg); color: var(--fg); border: 0.5px solid var(--border);
+  border-radius: var(--r-md); padding: 10px 12px; font-family: inherit; font-size: 13.5px;
+  cursor: pointer; outline: none;
+}
+.roi-field select:focus { border-color: var(--brand); }
+
+/* Barre "coût de la gestion actuelle" */
+.roi-lossbar {
+  margin-top: 2rem; display: flex; justify-content: space-between; align-items: center;
+  background: var(--brand-light); border: 0.5px solid var(--brand-border);
+  border-radius: var(--r-lg); padding: 1rem 1.4rem;
+}
+.roi-lossbar span { font-size: 13.5px; color: var(--fg2); }
+.roi-lossbar strong { font-family: 'Space Mono', monospace; font-size: 20px; color: var(--brand-dark); }
+[data-theme='dark'] .roi-lossbar strong { color: var(--brand); }
+
+/* Décomposition du prix */
+.roi-breakdown { margin-top: 2rem; }
+.roi-breakdown ul { list-style: none; margin-top: 1rem; }
+.roi-breakdown li {
+  display: flex; justify-content: space-between; gap: 1rem;
+  padding: 9px 0; border-bottom: 0.5px dashed var(--border); font-size: 13.5px;
+}
+.roi-breakdown li span { color: var(--fg2); }
+.roi-breakdown li b { font-family: 'Space Mono', monospace; color: var(--fg); white-space: nowrap; }
+.roi-breakdown li.roi-total { border-bottom: none; padding-top: 14px; }
+.roi-breakdown li.roi-total span { color: var(--fg); font-weight: 600; }
+.roi-breakdown li.roi-total b { color: var(--brand); font-size: 16px; }
+.roi-breakdown li.roi-muted span, .roi-breakdown li.roi-muted b { color: var(--fg3); font-size: 12.5px; }
+.roi-breakdown li.roi-muted { border-bottom: none; padding-top: 2px; }
+
+/* ── Résultats ── */
+.roi-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.roi-res { display: flex; flex-direction: column; gap: 6px; text-align: center; align-items: center; }
+.roi-res small { font-size: 11.5px; color: var(--fg3); letter-spacing: 0.5px; text-transform: uppercase; font-family: 'Space Mono', monospace; }
+.roi-res strong { font-size: 26px; font-weight: 700; color: var(--fg); line-height: 1.2; }
+.roi-res strong em { font-style: normal; font-size: 13px; color: var(--fg3); }
+.roi-res-hero strong.pos { color: var(--brand); }
+.roi-res-hero strong.neg { color: #d05252; }
+.roi-hyp { text-transform: none !important; letter-spacing: 0 !important; line-height: 1.5; }
+
+/* Point d'équilibre */
+.roi-payback { margin-top: 1.6rem; }
+.roi-payback-bar {
+  position: relative; height: 10px; background: var(--bg2);
+  border: 0.5px solid var(--border); border-radius: 6px; margin: 1.4rem 0 6px; overflow: visible;
+}
+.roi-payback-fill {
+  height: 100%; border-radius: 6px;
+  background: linear-gradient(90deg, var(--brand), #5eead4);
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.roi-payback-marker {
+  position: absolute; top: -30px; transform: translateX(-50%);
+  font-family: 'Space Mono', monospace; font-size: 12px; color: var(--brand);
+  background: var(--brand-light); border: 0.5px solid var(--brand-border);
+  padding: 2px 8px; border-radius: 5px; white-space: nowrap;
+}
+.roi-payback-scale { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--fg3); font-family: 'Space Mono', monospace; }
+.roi-verdict { margin-top: 1.2rem; font-size: 14.5px; color: var(--fg); }
+
+/* ── CTA ── */
+.roi-cta {
+  text-align: center; background: var(--card-bg); border: 0.5px solid var(--border);
+  border-radius: var(--r-xl); padding: 3rem 2rem; margin-bottom: 0;
+}
+.roi-cta h2 { font-size: 26px; margin-bottom: 0.6rem; color: var(--fg); }
+.roi-cta p { color: var(--fg2); font-size: 14.5px; max-width: 480px; margin: 0 auto 1.8rem; }
+.roi-cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.roi-btn {
+  display: inline-block; background: var(--brand); color: #fff; text-decoration: none;
+  padding: 13px 28px; border-radius: 30px; font-weight: 600; font-size: 14.5px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.roi-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(29, 158, 117, 0.3); }
+.roi-btn.ghost { background: transparent; color: var(--fg); border: 0.5px solid var(--border); }
+.roi-btn.ghost:hover { border-color: var(--brand); color: var(--brand); box-shadow: none; }
+
+.roi-foot {
+  text-align: center; margin-top: 3.5rem; font-size: 12px; color: var(--fg3);
+  padding: 0 1rem;
+}
+.roi-foot a { color: var(--brand); text-decoration: none; }
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .roi-h1 { font-size: 30px; }
+  .roi-grid { grid-template-columns: 1fr; }
+  .roi-results { grid-template-columns: 1fr; }
+  .roi-lossbar { flex-direction: column; gap: 4px; text-align: center; }
+}

@@ -1,0 +1,94 @@
+/* src/pages/PartnerSimulator.css — réutilise les variables globales de index.css */
+
+.ap-page { min-height: 100vh; background: var(--bg2); padding-bottom: 4rem; }
+
+.ap-top { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 2.5rem 1rem 0; }
+.ap-logo { font-size: 26px; font-weight: 700; color: var(--fg); letter-spacing: -0.5px; }
+.ap-logo b, .ap-logo i { color: var(--brand); font-style: normal; }
+.ap-eyebrow {
+  font-family: 'Space Mono', monospace; font-size: 11px; color: var(--brand);
+  letter-spacing: 2.5px; text-transform: uppercase; text-align: center;
+}
+
+.ap-h1 { font-size: 42px; font-weight: 700; line-height: 1.15; text-align: center; margin: 2.5rem 0 1rem; color: var(--fg); }
+.ap-h1 span { color: var(--brand); }
+.ap-sub { text-align: center; color: var(--fg2); font-size: 15px; max-width: 580px; margin: 0 auto 3.5rem; }
+
+.ap-block { margin-bottom: 3.5rem; background: transparent; border: none; padding: 0; }
+
+.ap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem 2.2rem; }
+
+.ap-field { display: flex; flex-direction: column; gap: 8px; }
+.ap-field-head { display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; color: var(--fg); font-weight: 500; }
+.ap-field-head strong { font-family: 'Space Mono', monospace; color: var(--brand); font-size: 14px; }
+.ap-field small { color: var(--fg3); font-size: 11.5px; line-height: 1.5; }
+.ap-field input[type='range'] { width: 100%; accent-color: var(--brand); cursor: pointer; height: 4px; }
+.ap-field input[type='checkbox'] { width: 18px; height: 18px; accent-color: var(--brand); cursor: pointer; }
+.ap-field select {
+  background: var(--card-bg); color: var(--fg); border: 0.5px solid var(--border);
+  border-radius: var(--r-md); padding: 10px 12px; font-family: inherit; font-size: 13.5px; cursor: pointer; outline: none;
+}
+.ap-field select:focus { border-color: var(--brand); }
+.ap-toggle { grid-column: 1 / -1; }
+
+/* Résultats */
+.ap-results { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+.ap-res { display: flex; flex-direction: column; gap: 6px; text-align: center; align-items: center; }
+.ap-res small { font-size: 11px; color: var(--fg3); letter-spacing: 0.5px; text-transform: uppercase; font-family: 'Space Mono', monospace; }
+.ap-res strong { font-size: 23px; font-weight: 700; color: var(--fg); line-height: 1.2; }
+.ap-res strong em { font-style: normal; font-size: 12px; color: var(--fg3); }
+.ap-res-hero strong { color: var(--brand); font-size: 26px; }
+.ap-note { text-transform: none !important; letter-spacing: 0 !important; }
+
+/* Signature — effort vs gain */
+.ap-effort {
+  margin-top: 1.6rem; display: flex; align-items: center; justify-content: space-around; gap: 1rem;
+  background: var(--brand-light); border-color: var(--brand-border);
+}
+.ap-effort-col { display: flex; flex-direction: column; gap: 4px; text-align: center; align-items: center; }
+.ap-effort-col small { font-size: 11px; color: var(--fg3); text-transform: uppercase; font-family: 'Space Mono', monospace; letter-spacing: 0.5px; }
+.ap-effort-col strong { font-size: 28px; font-weight: 700; color: var(--fg); }
+.ap-effort-col strong em { font-style: normal; font-size: 13px; color: var(--fg3); }
+.ap-effort-col span { font-size: 11.5px; color: var(--fg2); max-width: 220px; }
+.ap-effort-gain strong { color: var(--brand-dark); }
+[data-theme='dark'] .ap-effort-gain strong { color: var(--brand); }
+.ap-effort-arrow { font-size: 30px; color: var(--brand); font-weight: 700; }
+
+/* Étapes */
+.ap-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.ap-steps h3 i { color: var(--brand); font-style: normal; font-family: 'Space Mono', monospace; margin-right: 4px; }
+
+.ap-trust { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 1.6rem; }
+.ap-trust span {
+  font-family: 'Space Mono', monospace; font-size: 11px;
+  background: var(--brand-light); color: var(--brand-dark);
+  border: 0.5px solid var(--brand-border); padding: 5px 12px; border-radius: 20px;
+}
+[data-theme='dark'] .ap-trust span { color: var(--brand); }
+
+/* CTA */
+.ap-cta { text-align: center; background: var(--card-bg); border: 0.5px solid var(--border); border-radius: var(--r-xl); padding: 3rem 2rem; }
+.ap-cta h2 { font-size: 26px; margin-bottom: 0.6rem; color: var(--fg); }
+.ap-cta p { color: var(--fg2); font-size: 14.5px; max-width: 500px; margin: 0 auto 1.8rem; }
+.ap-cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.ap-btn {
+  display: inline-block; background: var(--brand); color: #fff; text-decoration: none;
+  padding: 13px 28px; border-radius: 30px; font-weight: 600; font-size: 14.5px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.ap-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(29, 158, 117, 0.3); }
+.ap-btn.ghost { background: transparent; color: var(--fg); border: 0.5px solid var(--border); }
+.ap-btn.ghost:hover { border-color: var(--brand); color: var(--brand); box-shadow: none; }
+
+.ap-foot { text-align: center; margin-top: 3.5rem; font-size: 12px; color: var(--fg3); padding: 0 1rem; }
+.ap-foot a { color: var(--brand); text-decoration: none; }
+
+@media (max-width: 860px) { .ap-results { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) {
+  .ap-h1 { font-size: 30px; }
+  .ap-grid { grid-template-columns: 1fr; }
+  .ap-steps { grid-template-columns: 1fr; }
+  .ap-effort { flex-direction: column; }
+  .ap-effort-arrow { transform: rotate(90deg); }
+}
+@media (max-width: 480px) { .ap-results { grid-template-columns: 1fr; } }
