@@ -164,7 +164,7 @@ export default function RoiCalculator() {
             <Slider label="Formation des équipes" value={trainDays} setValue={setTrainDays}
               min={1} max={10} unit=" j" />
             <Slider label="Tarif journalier consultant" value={tjm} setValue={setTjm}
-              min={300} max={600} step={10} unit=" DT" />
+              min={150} max={300} step={10} unit=" DT" />
           </div>
 
           <div className="roi-breakdown card-base">
