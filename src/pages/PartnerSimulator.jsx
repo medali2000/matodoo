@@ -92,7 +92,7 @@ export default function PartnerSimulator() {
             <Slider label="Taille moyenne d'un projet" value={project} setValue={setProject}
               min={8000} max={40000} step={1000} fmt={dt}
               hint="Projet type PME (Achats, Ventes, Stock, Compta) ≈ 18 000 DT" />
-            <Slider label="Votre commission" value={pct} setValue={setPct} min={10} max={15} unit=" %"
+            <Slider label="Votre commission" value={pct} setValue={setPct} min={10} max={30} unit=" %"
               hint="Versée après encaissement de chaque facture client — convention écrite" />
             <label className="ap-field ap-toggle">
               <span className="ap-field-head">
