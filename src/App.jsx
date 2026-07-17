@@ -14,11 +14,19 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
 
+import RoiCalculator from './pages/RoiCalculator';
+import PartnerSimulator from './pages/PartnerSimulator';
+
 function App() {
   const { theme, toggleTheme } = useTheme();
   const progress = useScrollProgress();
   const glowRef = useCursorGlow();
   useRippleEffect();
+
+  // ── Pages cachées, accessibles uniquement par URL directe ──
+  const path = window.location.pathname.replace(/\/+$/, '');
+  if (path === '/roi-calculator') return <RoiCalculator />;
+  if (path === '/simulateur-apporteur') return <PartnerSimulator />;
 
   return (
     <>
